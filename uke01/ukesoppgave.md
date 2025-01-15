@@ -65,7 +65,7 @@ $ npm install -D jest nodemon
 
 Node vil oppdatere **package.json** med et nytt felt **devDependecies** og installere koden for de pakkene i **node_modules** mappen. Node vil også opprette en **package-lock.json** fil som du ikke trenger å bry deg om men den innholder informasjon om hvilke versjoner som skal installeres.
 
-Les mer om **devpendecies** i [dokumentasjonen](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file) på npm sine sider.
+Les mer om **dependecies/devDependecies** i [dokumentasjonen](https://docs.npmjs.com/specifying-dependencies-and-devdependencies-in-a-package-json-file) på npm sine sider.
 
 ```diff
 {
@@ -87,3 +87,12 @@ Les mer om **devpendecies** i [dokumentasjonen](https://docs.npmjs.com/specifyin
 +   }
 }
 ```
+
+---
+
+### 4. Kopier HTML og CSS filene og opprett js start fil
+
+Gå til [demo prosjeket](https://github.com/gokstadakademiet/emne4-jsapi/tree/main/uke01/todoapp) og kopier innholodet fra **index.html** og **style.css** inn i din egen **index.html** og **style.css** i rot mappen av prosjektet ditt.
+Vi skal ikke bruke mye tid på HTML og css så dere får denne satt opp av meg. Ved å kjøre applikasjonen så skal den se ut som nedenfor. Resten av ukes oppgaven vil handle om å koble sammen denne applikasjonen med javascript og implementere funksjonalitet.
+
+![image TodoApp](./assets/html-css.png)
