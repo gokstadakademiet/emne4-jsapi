@@ -115,3 +115,12 @@ Når en bruker trykker på en grønn hake knapp skal den oppgaven på den linjen
 - Listen av oppgaver skal sorteres etter frist hvor første frist har øverst prioritet.
 - Oppgaver med utløpte frister skal fremheves med rød varsling om at fristen har utløpt.
 - Oppgaver som har frist i dag skal fremheves med gul varsling om at fristen utløper snart.
+
+### 9. [BONUS] Implementer filtrering av listen
+
+Legg til filtrering av listen slik at brukeren kan velge å kun vise,
+
+- **Aktive**: Oppgaver som ikke er gjennomført enda.
+- **Ferdig**: Oppgaver som er gjennomført
+- **Utløpte**: oppgaver som har utløpt sine frist
+- **Alle**: Alle oppgaver.
