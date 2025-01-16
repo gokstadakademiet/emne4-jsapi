@@ -96,3 +96,22 @@ Gå til [demo prosjeket](https://github.com/gokstadakademiet/emne4-jsapi/tree/ma
 Vi skal ikke bruke mye tid på HTML og css så dere får denne satt opp av meg. Ved å kjøre applikasjonen så skal den se ut som nedenfor. Resten av ukes oppgaven vil handle om å koble sammen denne applikasjonen med javascript og implementere funksjonalitet.
 
 ![image TodoApp](./assets/html-css.png)
+
+### 5. Implementer funksjonalitet for å legge til nye oppgaver i listen over oppgaver
+
+Når brukeren skriver inn en oppgave i tekstfeltet og trykker på den blå **+** knappen skal teksten bli lagt til en liste over oppgaver. Denne listen skal gjenspeiles i listen over oppgaver under teksteltet. Skriv tester for å sikre funksjonaliteten.
+
+### 6. Implementer funksjonalitet for å slette/fjerne oppgaver
+
+Når brukeren trykker på en søppelbøtte knapp skal den oppgaven på den linjen bli fjernet fra listen over oppgaver. Skriv tester for å sikre funksjonaliteten.
+
+### 7. Implementer funkjsonalitet for å gjennpomføre en oppgave
+
+Når en bruker trykker på en grønn hake knapp skal den oppgaven på den linjen bli markert som gjennomført og flyttes nedenfor alle ikke gjennomførte oppgaver. Skriv tester for å sikre funksjonaliteten.
+
+### 8. [BONUS] Implementer funksjonalitet for å legge til eller endre tidsfrist på ikke gjennomførte oppgaver
+
+- Legg til en knapp som git brukeren mulighet til å legge til en tidsfrist for når oppgaven skal være gjennomført.
+- Listen av oppgaver skal sorteres etter frist hvor første frist har øverst prioritet.
+- Oppgaver med utløpte frister skal fremheves med rød varsling om at fristen har utløpt.
+- Oppgaver som har frist i dag skal fremheves med gul varsling om at fristen utløper snart.
