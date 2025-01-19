@@ -1,0 +1,10 @@
+import { encode } from "./encoder";
+describe("Caesar cipher encoder", () => {
+    test("should shift a letter by number of key", () => {
+        const input = "A";
+        const key = 1;
+        const expected = "B";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+});
