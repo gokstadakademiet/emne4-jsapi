@@ -15,4 +15,12 @@ describe("Caesar cipher encoder", () => {
         const result = encode(input, key);
         expect(result).toBe(expected);
     });
+
+    test("should encode a word with lower case letters", () => {
+        const input = "Hello";
+        const key = 3;
+        const expected = "Khoor";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
 });
