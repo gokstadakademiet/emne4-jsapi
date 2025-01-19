@@ -1,4 +1,4 @@
-import { inverseBoolean } from "../src/demo";
+import { inverseBoolean } from "./demo";
 
 describe("test boolean inverser", () => {
     test("inverseBoolean should return false when input is true", () => {
