@@ -7,4 +7,12 @@ describe("Caesar cipher encoder", () => {
         const result = encode(input, key);
         expect(result).toBe(expected);
     });
+
+    test("should shift a letter by number of key when overflowing the alphabet", () => {
+        const input = "Z";
+        const key = 4;
+        const expected = "D";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
 });
