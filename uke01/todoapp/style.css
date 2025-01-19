@@ -90,7 +90,9 @@ body {
                         padding: 10px;
                         font-size: 18px;
                     }
-
+                    &.completed {
+                        text-decoration: line-through;
+                    }
                     button {
                         padding: 5px 10px;
                         border-radius: 5px;
