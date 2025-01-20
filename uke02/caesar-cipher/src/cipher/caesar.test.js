@@ -1,4 +1,4 @@
-import { encode } from "./encoder";
+import { encode } from "./caesar";
 describe("Caesar cipher encoder", () => {
     test("should shift a letter by number of key", () => {
         const input = "A";
