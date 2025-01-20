@@ -118,4 +118,14 @@ I **package.json** skal vi nå oppdatere test kommandoen til å bruke denne konf
 ...
 ```
 
+Når vi har kommet så lang burde nå jest være konfigurert for å kjøre med **npm run test** og dersom du åpner vscode til knyttet rot mappen til npm prosjektet ditt så skal den også kunne kjøre testene.
+
+<div style="display: flex; width: 100%; gap: 20px; max-width: 360px" markdown="1>
+
+![vscode-test-extension](assets/vscode-test-extension.png )
+![vscode-test-list](assets/vscode-test-list.png )
+</div>
+
 ---
+
+
