@@ -118,9 +118,9 @@ I **package.json** skal vi nå oppdatere test kommandoen til å bruke denne konf
 ...
 ```
 
-Når vi har kommet så lang burde nå jest være konfigurert for å kjøre med **npm run test** og dersom du åpner vscode til knyttet rot mappen til npm prosjektet ditt så skal den også kunne kjøre testene.
+Når vi har kommet så lang burde nå jest være konfigurert for å kjøre med **npm run test** og dersom du åpner vscode til knyttet rot mappen til npm prosjektet ditt så skal den også kunne kjøre testene. Npm prosjekt rotmappe er den mappen som inneholder **package.json** filen din.
 
-<div style="display: flex; width: 100%; gap: 20px; max-width: 360px" markdown="1>
+<div style="display: flex; width: 100%; gap: 10px; max-width: 360px" markdown="1>
 
 ![vscode-test-extension](assets/vscode-test-extension.png )
 ![vscode-test-list](assets/vscode-test-list.png )
@@ -128,4 +128,20 @@ Når vi har kommet så lang burde nå jest være konfigurert for å kjøre med *
 
 ---
 
+### 5. Begynn med å bygge funksjonene dine som vil håndtere cryptering
 
+Opprette mappen **src/cipher/** og opprett filene **caesar.js** og **caesar.test.js**. Opprett funksjonen **encode** som tar inn en streng med ukryptert text og returnerer den krypterte teksten.
+
+Disse to filene skall inneholde all logiken for å kryptere og dekryptere med caesar-cipher metoden.
+Siden vi nå bruker jest og skal utvikle med testbibliotek så trenger vi ikke å bruke html eller css i utviklingen vår. Dette gir oss mye raskere tilbakemelding på utviklingen av logikken vår og større trygghet om at biblioteket vårt med logikk er klart til å brukes med frontenden etterpå. 
+
+**Oppgave:**
+
+- Bruk TDD (Test driven development) til å utvikle encode funksjonen i **src/cipher/caesar.js**
+- Bruk TDD for å utvikle decode funksjonen i **src/cipher/caesar.js**
+
+**Kravspesifikasjon:**
+
+- encode skal ta inn en klartekst som streng og et tall som integer som indikerer hvor mange plasser som skal forskyves.
+- Indikatoren kan være både poitive og negative tall og kan være ubegrenset av anntall bokstaver i alfabetet.
+- Klar teksten skal håndtere store og små bokstaver, mellomrom, komma, punktum, bindestrek, understrek, spørsmålstegn og dobbel anførselstegn. Legg til støtte for andre spesial tegn dersom du ønsker det.
