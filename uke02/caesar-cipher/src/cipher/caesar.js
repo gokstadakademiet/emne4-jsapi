@@ -1,3 +1,7 @@
+export const decode = (cipher, key) => {
+    return encode(cipher, -key);
+};
+
 export const encode = (plain, key) => {
     const characters = [...plain];
     const shiftedCharacters = characters.map((char) => {
