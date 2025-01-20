@@ -6,6 +6,9 @@ body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        &:focus {
+            outline: none;
+        }
     }
 
     display: flex;
@@ -15,8 +18,8 @@ body {
 
     main {
         background-color: white;
-        height: 80vh;
-        width: 80vw;
+        height: 640px;
+        width: 720px;
         display: flex;
         flex-direction: column;
         justify-content: start;
@@ -24,10 +27,10 @@ body {
         section {
             padding: 20px;
 
-            &:first-child {
+            &.header {
                 display: flex;
                 flex-direction: column;
-                gap: 20px;
+                gap: 3rem;
                 background-color: lightblue;
 
                 heading {
@@ -39,7 +42,7 @@ body {
                     display: flex;
 
                     button {
-                        font-size: 0.5em;
+                        font-size: 0.7em;
                         background-color: lightcoral;
                         color: white;
                         padding: 5px 10px;
@@ -57,8 +60,67 @@ body {
                 }
             }
 
-            &:not(:first-child) {
+            &:not(.header) {
                 flex-grow: 1;
+            }
+
+            &.input,
+            &.output {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                textarea {
+                    padding: 20px;
+                    font-size: 1.3em;
+                    height: 80%;
+                    resize: none;
+                    scrollbar-width: none;
+                    border: none;
+                    border-radius: 3px;
+                    background-color: #f9f9f9;
+                    color: #333333;
+                }
+
+                .actions {
+                    display: flex;
+                    gap: 10px;
+
+                    input {
+                        border: none;
+                        text-align: end;
+                    }
+
+                    button {
+                        color: white;
+                        cursor: pointer;
+                        font-weight: bold;
+                        padding-left: 10px;
+                        border: none;
+                        border-radius: 5px;
+
+                        i {
+                            margin-right: 5px;
+                            margin: 0;
+                            padding: 5px;
+                            border-radius: 0 5px 5px 0;
+                        }
+
+                        &#encode {
+                            background-color: darkred;
+                            i {
+                                background-color: lightcoral;
+                            }
+                        }
+
+                        &#decode {
+                            background-color: teal;
+                            i {
+                                background-color: lightgreen;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
