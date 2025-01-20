@@ -1,13 +1,23 @@
 export const encode = (plain, key) => {
-    const letters = [...plain];
-    const charCode = letters.map((letter) => letter.charCodeAt(0));
-    const shifted = charCode.map((code) => {
-        if (code < 97) {
-            return code + key > 90 ? code + key - 26 : code + key;
-        } else {
-            return code + key > 122 ? code + key - 26 : code + key;
+    const characters = [...plain];
+    const shiftedCharacters = characters.map((char) => {
+        if (!isAlphabet(char)) {
+            return char;
         }
+        return shiftLetter(char, key % 26);
     });
-    const encoded = shifted.map((code) => String.fromCharCode(code));
-    return encoded.join("");
+    return shiftedCharacters.join("");
 };
+
+const shiftLetter = (letter, key) => {
+    const isLowerCase = letter === letter.toLowerCase();
+    const code = isLowerCase
+        ? letter.toUpperCase().charCodeAt(0)
+        : letter.charCodeAt(0);
+    const shiftedLetter = String.fromCharCode(
+        code + key > 90 ? code + key - 26 : code + key
+    );
+    return isLowerCase ? shiftedLetter.toLowerCase() : shiftedLetter;
+};
+
+const isAlphabet = (char) => /[a-zA-Z]/.test(char) === true;

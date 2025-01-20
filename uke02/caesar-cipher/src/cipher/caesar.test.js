@@ -23,4 +23,44 @@ describe("Caesar cipher encoder", () => {
         const result = encode(input, key);
         expect(result).toBe(expected);
     });
+
+    test("should encode a sentence with spaces and non alphanumeric characters", () => {
+        const input = "Hello, World!";
+        const key = 1;
+        const expected = "Ifmmp, Xpsme!";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+
+    test("should encode a sentence with a negative key", () => {
+        const input = "Hello, World!";
+        const key = -1;
+        const expected = "Gdkkn, Vnqkc!";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+
+    test("should encode a sentence with a large key", () => {
+        const input = "Hello, World!";
+        const key = 260;
+        const expected = "Hello, World!";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+
+    test("should encode a sentence with a large negative key", () => {
+        const input = "Hello, World!";
+        const key = -260;
+        const expected = "Hello, World!";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+
+    test("should encode a sentence without any letters", () => {
+        const input = "1234567890 -.,!?";
+        const key = 1;
+        const expected = "1234567890 -.,!?";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
 });
