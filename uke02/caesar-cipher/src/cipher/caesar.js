@@ -8,8 +8,8 @@ export const encode = (plain, key) => {
         if (isAlphabet(char)) {
             return shiftLetter(char, key % 26);
         }
-        if ("æøåÆØÅ".includes(char)) {
-            return shiftNorwegianLetter(char, key % 5);
+        if ("æøåÆØÅÇÙÆçùæ".includes(char)) {
+            return shiftNorwegianLetter(char, key);
         }
         return char;
     });
@@ -33,7 +33,7 @@ const shiftNorwegianLetter = (letter, key) => {
     const code = isLowerCase
         ? letter.toUpperCase().charCodeAt(0)
         : letter.charCodeAt(0);
-    const shiftedLetter = String.fromCharCode(code + key);
+    const shiftedLetter = String.fromCharCode(code + (key > 0 ? 1 : -1));
     return isLowerCase ? shiftedLetter.toLowerCase() : shiftedLetter;
 };
 
