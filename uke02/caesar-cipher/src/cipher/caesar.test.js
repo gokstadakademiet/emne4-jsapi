@@ -63,6 +63,22 @@ describe("Caesar cipher encoder", () => {
         const result = encode(input, key);
         expect(result).toBe(expected);
     });
+
+    test("should encode UTF-8 characters", () => {
+        const input = "ÆØÅæøå";
+        const key = 1;
+        const expected = "ÇÙÆçùæ";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
+
+    test("should encode UTF-8 characters with a large key", () => {
+        const input = "ÆØÅæøå";
+        const key = 16;
+        const expected = "ÇÙÆçùæ";
+        const result = encode(input, key);
+        expect(result).toBe(expected);
+    });
 });
 
 describe("Caesar cipher decoder", () => {
