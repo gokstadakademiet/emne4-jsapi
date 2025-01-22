@@ -113,4 +113,12 @@ describe("Caesar cipher decoder", () => {
         const result = decode(input, key);
         expect(result).toBe(expected);
     });
+
+    test("should decode utf-8 characters", () => {
+        const input = "ÇÙÆçùæ";
+        const key = 1;
+        const expected = "ÆØÅæøå";
+        const result = decode(input, key);
+        expect(result).toBe(expected);
+    });
 });
