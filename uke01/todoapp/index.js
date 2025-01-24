@@ -3,13 +3,14 @@ const addtaskbtn = document.getElementById("add-task-btn");
 const tasklist = document.getElementById("task-list");
 
 const tasks = [
-    { title: "one", completed: false, deadline: "2021-10-10" },
+    { title: "one", completed: false },
     { title: "two", completed: false },
-    { title: "three", completed: true },
+    { title: "three", completed: false, deadline: "2021-10-10" },
 ];
 
 addtaskbtn.addEventListener("click", (event) => {
     event.preventDefault();
+    console.log("Task added", tasks);
     addTaskToList(taskinput.value, tasks);
     taskinput.value = "";
     console.log("Task added", tasks);
@@ -32,14 +33,8 @@ const addTaskToList = (task, list) => {
 const renderTasks = () => {
     tasklist.innerHTML = "";
     tasks
-        .filter((task) => !task.completed)
-        .sort((a, b) => a.deadline - b.deadline)
-        .forEach((task, index) => {
-            const listItemElement = createTaskElement(task, index); // <li></li>
-            tasklist.appendChild(listItemElement);
-        });
-    tasks
-        .filter((task) => task.completed)
+        // .filter((task) => !task.completed)
+        // .sort((a, b) => a.deadline - b.deadline)
         .forEach((task, index) => {
             const listItemElement = createTaskElement(task, index); // <li></li>
             tasklist.appendChild(listItemElement);
@@ -55,15 +50,29 @@ const completeTask = (index) => {
     renderTasks();
 };
 
+const updateDeadline = (event) => {
+    console.log("updateDeadline", event);
+    const index = event.target.id.split("-")[1];
+    const newDeadline = event.target.value;
+    tasks[index].deadline = newDeadline;
+    renderTasks();
+};
+
 const createTaskElement = (task, index) => {
     const taskElement = document.createElement("li");
     taskElement.classList.add("todo-item");
-    taskElement.classList.add(task.completed ? "completed" : "pending");
+
+    if (task.completed) {
+        taskElement.classList.add("completed");
+    }
+
+    const deafaultdeadline = new Date().toISOString().split("T")[0];
+
     taskElement.innerHTML = `
     <span class="task text">${task.title}</span>
-    <button class="task deadline" onclick="completeTask(${index})">
-        <i class="fa fa-clock-o"></i>
-    </button>
+    <input id="deadline-${index}" index=${index} type="date" class="deadline" value="${
+        task.deadline ?? deafaultdeadline
+    }" onchange="updateDeadline(event)" />
     <button class="task complete" onclick="completeTask(${index})">
         <i class="fa fa-check"></i>
     </button>
