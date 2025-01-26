@@ -81,7 +81,6 @@ Les mer om **dependecies/devDependecies** i [dokumentasjonen](https://docs.npmjs
 $ npx jest init
 ```
 
-
 output:
 
 The following questions will help Jest to create a suitable configuration for your project
@@ -97,6 +96,7 @@ Dette vil opprette en **jest.config.js** fil i roten av prosjektet. Ta en titt p
 
 Legg til følgende i **jest.config.js**, dette vil fortelle jest at vi skal bruke babel for testene våre.
 
+_**jest.config.js**_
 ```diff
 const config = {
     ...
@@ -105,6 +105,22 @@ const config = {
 +   },
     ...
 }
+```
+
+Deretter opprett **babel.config.json** i root mappen og legge dette inn i filen.
+
+_**babel.config.json**_
+
+```diff
++   {
++       "env": {
++           "test": {
++               "presets": [
++                   "@babel/preset-env"
++               ],
++           }
++       }
++   }
 ```
 
 I **package.json** skal vi nå oppdatere test kommandoen til å bruke denne konfigurasjons filen.
