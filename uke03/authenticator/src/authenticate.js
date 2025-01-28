@@ -11,7 +11,7 @@ export const isAuthenticated = () => {
         return false;
     }
 
-    return true;
+    return user;
 };
 
 export const authenticate = (user) => {

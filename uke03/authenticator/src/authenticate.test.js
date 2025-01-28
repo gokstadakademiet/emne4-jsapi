@@ -27,7 +27,7 @@ describe("Authtentication", () => {
             const validUser = { username: "johndoe" };
             const validUserString = JSON.stringify(validUser);
             localStorage.setItem("user", validUserString);
-            expect(isAuthenticated()).toBe(true);
+            expect(isAuthenticated()).toStrictEqual(validUser);
         });
     });
 
