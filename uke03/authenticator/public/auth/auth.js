@@ -18,4 +18,6 @@ signinForm.addEventListener("formdata", (event) => {
     }
 
     localStorage.setItem("user", JSON.stringify(user));
+
+    window.location.assign("/");
 });
