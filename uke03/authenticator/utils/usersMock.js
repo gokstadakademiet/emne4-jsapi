@@ -1,4 +1,8 @@
-export const users = [
+export function getUsers() {
+    return users;
+}
+
+const users = [
     {
         id: 1,
         username: "johndoe",
