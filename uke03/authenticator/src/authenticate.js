@@ -14,7 +14,8 @@ export const isAuthenticated = () => {
     return true;
 };
 
-export const authenticate = (username, password) => {
+export const authenticate = (user) => {
+    const { username, password } = user;
     // Check if username or password is empty
     if (username === "" || password === "") {
         return false;
@@ -24,15 +25,15 @@ export const authenticate = (username, password) => {
     const users = getUsers();
 
     // Find user with same username in the list of users
-    const user = users.find((user) => user.username === username);
+    const authenticatedUser = users.find((user) => user.username === username);
 
     // Check if any user was found
-    if (!user) {
+    if (!authenticatedUser) {
         return false;
     }
     // Check if password is correct
 
-    if (user.password !== password) {
+    if (authenticatedUser.password !== password) {
         return false;
     }
 
