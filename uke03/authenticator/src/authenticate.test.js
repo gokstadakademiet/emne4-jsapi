@@ -1,5 +1,5 @@
 import * as usersMock from "../utils/usersMock.js";
-import { authenticate, isAuthenticated } from "./authenticate.js";
+import { authenticate, isAuthenticated, register } from "./authenticate.js";
 
 describe("Authtentication", () => {
     describe("isAuthenticated", () => {
@@ -67,6 +67,53 @@ describe("Authtentication", () => {
             const validUser = validUsers[0];
             const { username, password } = validUser;
             expect(authenticate(username, password)).toBe(validUser);
+        });
+    });
+
+    describe("register", () => {
+        const newUser = {
+            username: "newUser",
+            password: "password",
+            name: "New User",
+            email: "new.user@example.com",
+        };
+
+        test("should return false if username is empty", () => {
+            expect(register({ ...newUser, username: "" })).toStrictEqual(false);
+        });
+
+        test("should return false if password is empty", () => {
+            expect(register({ ...newUser, password: "" })).toStrictEqual(false);
+        });
+
+        test("should return false if name is empty", () => {
+            expect(register({ ...newUser, name: "" })).toBe(false);
+        });
+
+        test("should return false if email is empty", () => {
+            expect(register({ ...newUser, email: "" })).toBe(false);
+        });
+
+        test("should return false if username already exists", () => {
+            const existingUsers = [
+                {
+                    username: "johnMock",
+                    name: "John Mock",
+                    password: "password",
+                },
+            ];
+
+            jest.spyOn(usersMock, "getUsers").mockReturnValue(existingUsers);
+
+            expect(
+                register({ ...newUser, username: existingUsers[0].username })
+            ).toBe(false);
+        });
+
+        test("should return user if registration is successful", () => {
+            const mock = jest.spyOn(usersMock, "registerUser");
+            register({ ...newUser });
+            expect(mock).toHaveBeenCalledWith(newUser);
         });
     });
 });
