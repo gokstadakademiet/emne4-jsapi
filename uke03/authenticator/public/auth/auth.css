@@ -35,7 +35,6 @@ section.auth {
         }
 
         .form-action {
-            margin-top: 2rem;
             display: flex;
             justify-content: space-between;
 
