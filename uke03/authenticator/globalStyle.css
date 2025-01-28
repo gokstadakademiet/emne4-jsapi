@@ -23,6 +23,7 @@ body {
         align-items: center;
         background-color: azure;
         gap: 1.5em;
+        min-width: 480px;
 
         padding: 2em;
         border-radius: 0.5em;
