@@ -5,6 +5,10 @@ body {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+
+        li {
+            list-style-type: none;
+        }
     }
 
     display: flex;
@@ -19,9 +23,16 @@ body {
         align-items: center;
         background-color: azure;
         gap: 1.5em;
-        min-width: 420px;
 
         padding: 2em;
         border-radius: 0.5em;
+
+        section.nav {
+            display: flex;
+            gap: 1em;
+            width: 100%;
+            background-color: beige;
+            padding: 1em;
+        }
     }
 }

@@ -4,10 +4,36 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script type="module" src="index.js" defer></script>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="globalStyle.css" />
         <title>Document</title>
     </head>
     <body>
-        <p>index page</p>
+        <main>
+            <section class="header">
+                <h1>Landings side</h1>
+                <p>
+                    Dette er landings siden, har skal alle kunne se innholdet
+                    uten å logge seg på.
+                </p>
+                <p>
+                    Dersom brukeren er pålogget så skal vi under her vise en
+                    link av sider som er tilgjengelig
+                </p>
+                <p>
+                    Dersom brukeren ikke er på logget skal vi vise brukeren til
+                    innloggins siden <b>/auth</b>
+                </p>
+            </section>
+            <section class="nav">
+                <ul>
+                    <li class="list-item">
+                        <a href="/private/dashborad">Dashboard</a>
+                    </li>
+                    <li class="list-item">
+                        <a href="/private/settings/">Settings</a>
+                    </li>
+                </ul>
+            </section>
+        </main>
     </body>
 </html>
