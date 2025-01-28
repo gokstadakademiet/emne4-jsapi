@@ -48,25 +48,29 @@ describe("Authtentication", () => {
         jest.spyOn(usersMock, "getUsers").mockReturnValue(validUsers);
 
         test("should return false if username is empty", () => {
-            expect(authenticate("", "password")).toBe(false);
+            expect(authenticate({})).toBe(false);
         });
         test("should return false if password is empty", () => {
-            expect(authenticate("username", "")).toBe(false);
+            expect(authenticate({})).toBe(false);
         });
         test("should return false if username not found", () => {
-            expect(authenticate("invalidUsername", "invalidPassword")).toBe(
-                false
-            );
+            expect(
+                authenticate({
+                    username: "invalid",
+                    password: "password",
+                })
+            ).toBe(false);
         });
         test("should return false if username found but password is incorrect", () => {
-            const { username } = validUsers[0];
-            expect(authenticate(username, "invalidPassword")).toBe(false);
+            const validUser = validUsers[0];
+            expect(authenticate({ ...validUser, password: "invalid" })).toBe(
+                false
+            );
         });
 
         test("should return user if username and password are correct", () => {
             const validUser = validUsers[0];
-            const { username, password } = validUser;
-            expect(authenticate(username, password)).toBe(validUser);
+            expect(authenticate(validUser)).toBe(validUser);
         });
     });
 
