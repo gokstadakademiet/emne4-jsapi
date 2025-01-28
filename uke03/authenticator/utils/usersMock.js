@@ -1,6 +1,11 @@
-export function getUsers() {
+export const getUsers = () => {
     return users;
-}
+};
+
+export const registerUser = (user) => {
+    users.push(user);
+    return user;
+};
 
 const users = [
     {
