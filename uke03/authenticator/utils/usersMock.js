@@ -2,7 +2,12 @@ export const getUsers = () => {
     return users;
 };
 
-export const registerUser = (user) => {
+export const registerUser = (userData) => {
+    const { repeatPassword, ...newUser } = userData;
+    const user = {
+        id: users.length + 1,
+        ...newUser,
+    };
     users.push(user);
     return user;
 };

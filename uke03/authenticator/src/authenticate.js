@@ -41,10 +41,14 @@ export const authenticate = (user) => {
 };
 
 export const register = (newUser) => {
+    const { username, password, repeatPassword, name, email } = newUser;
     // Check if username or password is empty
+    if (username === "" || password === "" || repeatPassword === "") {
+        return false;
+    }
 
-    const { username, password, name, email } = newUser;
-    if (username === "" || password === "") {
+    // Check if password and repeat password match
+    if (password !== repeatPassword) {
         return false;
     }
 
@@ -66,5 +70,5 @@ export const register = (newUser) => {
     }
 
     // Add new user to the list
-    registerUser(newUser);
+    return registerUser(newUser);
 };

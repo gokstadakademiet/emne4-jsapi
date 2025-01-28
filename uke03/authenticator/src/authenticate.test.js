@@ -78,6 +78,7 @@ describe("Authtentication", () => {
         const newUser = {
             username: "newUser",
             password: "password",
+            repeatPassword: "password",
             name: "New User",
             email: "new.user@example.com",
         };
@@ -99,18 +100,28 @@ describe("Authtentication", () => {
         });
 
         test("should return false if username already exists", () => {
-            const existingUsers = [
-                {
-                    username: "johnMock",
-                    name: "John Mock",
-                    password: "password",
-                },
-            ];
+            const existingUser = { username: "johnMock" };
 
-            jest.spyOn(usersMock, "getUsers").mockReturnValue(existingUsers);
+            jest.spyOn(usersMock, "getUsers").mockReturnValue([existingUser]);
 
             expect(
-                register({ ...newUser, username: existingUsers[0].username })
+                register({ ...newUser, username: existingUser.username })
+            ).toBe(false);
+        });
+        test("should return false if password and repeat password do not match", () => {
+            const existingUser = {
+                username: "johnMock",
+            };
+
+            jest.spyOn(usersMock, "getUsers").mockReturnValue([existingUser]);
+
+            expect(
+                register({
+                    ...newUser,
+                    username: existingUser.username,
+                    password: "password",
+                    repeatPassword: "invalid",
+                })
             ).toBe(false);
         });
 
