@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/globalStyle.css" />
+        <script type="module" src="dashboard.js" defer></script>
+        <title>private dashboard</title>
+    </head>
+    <body>
+        <main>
+            <section class="dashboard header">
+                <h1>Dashboard</h1>
+            </section>
+            <section class="dashboard content">
+                <p>Welcome to the dashboard</p>
+                <p>This page should only be accessible to logged in users</p>
+                <p>You are logged inn as</p>
+                <p>Username: <span id="username"></span></p>
+            </section>
+            <section>
+                <button id="logout">Logout</button>
+            </section>
+        </main>
+    </body>
+</html>
