@@ -1,9 +1,8 @@
+import { isAuthenticated } from "./src/authenticate.js";
+
 const nav = document.querySelector("nav");
-const loggedinUser = JSON.parse(localStorage.getItem("user"));
 
-console.log("loggedinUser", loggedinUser, !loggedinUser);
-
-if (!!loggedinUser) {
+if (isAuthenticated()) {
     nav.innerHTML = `
 <ul>
 <li class="list-item">
