@@ -28,7 +28,7 @@ body {
         padding: 2em;
         border-radius: 0.5em;
 
-        section.nav {
+        nav {
             display: flex;
             gap: 1em;
             width: 100%;
