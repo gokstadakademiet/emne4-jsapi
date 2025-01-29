@@ -94,3 +94,10 @@
   - Passord skal minst være på 8 tegn
   - passord skal minst inneholde 1 liten bokstav, 1 stor bokstav, 1 tall og 1 spesialtegn
 - Husk å teste dette med jest
+
+### 5. [BONUS] Passord hashing
+
+Det er ikke sikkerhetsmessig tilstrekkelig å lagre passord i klart teskst på den måten vi nå har lagret det i **register** metoden i **authenticate.js**. Les om passord hasing med bCrypt biblioteket i [her](https://www.freecodecamp.org/news/how-to-hash-passwords-with-bcrypt-in-nodejs/).
+
+- Når brukeren sender inn passord til register metoden i skal det først hashes før det lagres.
+- Når en bruker skla logge inn må passordet også hases for å sammenliknes med passordet som er lagret hos oss. Bruk bCrypt til å gjøre denne sammenlikningen.
