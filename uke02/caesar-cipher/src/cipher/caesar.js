@@ -22,9 +22,17 @@ const shiftLetter = (letter, key) => {
     const code = isLowerCase
         ? letter.toUpperCase().charCodeAt(0)
         : letter.charCodeAt(0);
-    const shiftedLetter = String.fromCharCode(
-        code + key > 90 ? code + key - 26 : code + key
-    );
+
+    let shiftedLetterCode = 0;
+
+    if (code + key > 90) {
+        shiftedLetterCode = code + key - 26;
+    } else if (code + key < 65) {
+        shiftedLetterCode = code + key + 26;
+    } else {
+        shiftedLetterCode = code + key;
+    }
+    const shiftedLetter = String.fromCharCode(shiftedLetterCode);
     return isLowerCase ? shiftedLetter.toLowerCase() : shiftedLetter;
 };
 

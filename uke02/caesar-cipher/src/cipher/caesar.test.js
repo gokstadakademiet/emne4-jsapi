@@ -91,10 +91,13 @@ describe("Caesar cipher decoder", () => {
     });
 
     test("should decode a letter by number of key when overflowing the alphabet", () => {
+        // arrenge
         const input = "D";
         const key = 4;
         const expected = "Z";
+        // act
         const result = decode(input, key);
+        // assert
         expect(result).toBe(expected);
     });
 
