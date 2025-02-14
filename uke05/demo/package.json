@@ -1,0 +1,21 @@
+{
+    "name": "demo",
+    "version": "1.0.0",
+    "description": "",
+    "main": "script.js",
+    "scripts": {
+        "test": "jest --watch",
+        "build": "",
+        "publish": "",
+        "deploy": ""
+    },
+    "keywords": [],
+    "author": "Abebe Bediye",
+    "license": "MIT",
+    "devDependencies": {
+        "jest": "^29.7.0",
+        "@babel/core": "^7.26.8",
+        "@babel/preset-env": "^7.26.8",
+        "babel-jest": "^29.7.0"
+    }
+}
