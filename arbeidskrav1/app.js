@@ -1,7 +1,29 @@
+const char_name_input = document.querySelector("#character-name");
+const char_hp_input = document.querySelector("#character-hp");
+const char_attack_input = document.querySelector("#attack-damage");
+const char_create_btn = document.querySelector("#create-character");
+
 //Her kommer din Javascript-kode. Kommentarene er lagt til for å hjelpe deg med å dele opp oppgavene,
 // du kan slette disse hvis du ønsker.
 
 //  Del 1: Lag karakter og lagre karakteren i localStorage
+
+// char_create_btn.addEventListener("click", () => {
+//     const name = char_name_input.value;
+//     const hp = char_hp_input.value;
+
+//     const character = createCharacter(name, hp);
+
+//     if (character) {
+//         saveCharacter(character);
+//     }
+// });
+
+export const saveCharacter = (character) => {
+    localStorage.setItem("character", JSON.stringify(character));
+    calculateDamage(character);
+    makeEnemy();
+};
 
 export function createCharacter(nameInput, hpInput) {
     if (isNaN(hpInput)) {
