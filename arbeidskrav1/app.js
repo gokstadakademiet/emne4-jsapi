@@ -4,6 +4,14 @@
 //  Del 1: Lag karakter og lagre karakteren i localStorage
 
 export function createCharacter(nameInput, hpInput) {
+    if (isNaN(hpInput)) {
+        return;
+    }
+
+    if (typeof hpInput === "string") {
+        hpInput = parseInt(hpInput);
+    }
+
     return { name: nameInput, hp: hpInput };
 }
 

@@ -2,10 +2,10 @@ import { createCharacter } from "./app";
 
 describe("Charchter", () => {
     describe("Create character", () => {
-        test("Should return new character with inputname", () => {
+        test("Should not return new character with only inputname", () => {
             // arrange
             const inputName = "Hero Nakamura";
-            const expected = { name: inputName };
+            const expected = undefined;
 
             // act
             const result = createCharacter(inputName);
@@ -29,8 +29,21 @@ describe("Charchter", () => {
         test("Should create new character with hp as string", () => {
             // arrange
             const inputName = "Hero Nakamura";
-            const inputHp = "fotball";
+            const inputHp = 80;
             const expected = { name: inputName, hp: inputHp };
+
+            // act
+            const result = createCharacter(inputName, inputHp);
+
+            // assert
+            expect(result).toEqual(expected);
+        });
+
+        test("should not create character with hp as string", () => {
+            // arrange
+            const inputName = "Hero Nakamura";
+            const inputHp = "abebe";
+            const expected = undefined;
 
             // act
             const result = createCharacter(inputName, inputHp);
