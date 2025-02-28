@@ -23,7 +23,7 @@ describe("Authtentication", () => {
             localStorage.setItem("user", invaldiUserString);
             expect(isAuthenticated()).toBe(false);
         });
-        test("should return true if user exists in storage and username is assigned", () => {
+        test("should return user if user exists in storage and username is assigned", () => {
             const validUser = { username: "johndoe" };
             const validUserString = JSON.stringify(validUser);
             localStorage.setItem("user", validUserString);
