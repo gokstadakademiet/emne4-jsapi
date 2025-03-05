@@ -6,17 +6,36 @@
 ### 📌 **Hvordan bruke Fetch API?**  
 Grunnleggende syntaks for `fetch` ser slik ut:  
 
+
 ```javascript
+// Promiss
 fetch(url, options)
   .then(response => response.json())  // Konverterer response til JSON
   .then(data => console.log(data))    // Håndterer dataen
   .catch(error => console.error("Error:", error));  // Fanger opp feil
 ```
 
+
+
 - **`url`**: Adressen til API-et du vil hente data fra.  
 - **`options`**: (Valgfritt) Et objekt hvor du kan spesifisere HTTP-metoden, headers, body osv.  
 - **`.then(response => response.json())`**: Konverterer response til JSON-format.  
 - **`.catch(error => console.error("Error:", error))`**: Fanger opp og logger eventuelle feil.  
+
+Alternativt kan du bruke async await
+```javascript
+// Async/await 
+async function fetchData(url, options) {
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+        const data = await response.json();
+        console.log(data); // Håndterer dataen
+    } catch (error) {
+        console.error("Error:", error); // Fanger opp feil
+    }
+}
+```
 
 ---
 
