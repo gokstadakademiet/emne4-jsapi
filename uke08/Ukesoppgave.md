@@ -133,6 +133,34 @@ document.getElementById("fetchPokemons").addEventListener("click", () => {
         .catch(error => console.error("Error:", error));
 });
 ```
+Alternativ med async-await
+```js
+// Async-Await
+const apiUrl = "https://pokeapi.co/api/v2/pokemon?limit=10";
+
+document.getElementById("fetchPokemons").addEventListener("click", async () => {
+    try {
+        const response = await fetch(apiUrl); // Sender en GET-forespørsel
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json(); // Konverterer response til JSON
+        const pokemonList = document.getElementById("pokemonList");
+        pokemonList.innerHTML = ""; // Tømmer listen før vi legger til nye elementer
+
+        data.results.forEach(pokemon => {
+            const listItem = document.createElement("li");
+            listItem.textContent = pokemon.name;
+            pokemonList.appendChild(listItem);
+        });
+    } catch (error) {
+        console.error("Error:", error);
+    }
+});
+
+```
+
 
 ---
 
